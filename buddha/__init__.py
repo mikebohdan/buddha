@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_admin import Admin
 from flask_httpauth import HTTPTokenAuth
+from flask_mail import Mail
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
@@ -10,11 +11,13 @@ auth_manager = HTTPTokenAuth('Buddah-Manager')
 
 db = SQLAlchemy()
 migrate = Migrate()
+mail = Mail()
 
-import buddah.authentication
-import buddah.models
-import buddah.admin
-import buddah.views as views
+# init all modules after all bateries created
+import buddha.authentication
+import buddha.models
+import buddha.admin
+import buddha.views as views
 
 
 def create_app(config_obj):
@@ -30,6 +33,9 @@ def create_app(config_obj):
 
     # Migrate config
     migrate.init_app(db=db, app=app)
+
+    # Mail configuration
+    mail.init_app(app)
 
     # Classy registering in app
     for view in views.__all__:

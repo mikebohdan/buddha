@@ -1,8 +1,8 @@
 from flask_admin.contrib.sqla import ModelView
 
-from buddah import admin_plug as admin
-from buddah import db
-from buddah.models import User
+from buddha import admin_plug as admin
+from buddha import db
+from buddha.models import User
 
 
 class AdminModelView(ModelView):

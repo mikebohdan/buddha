@@ -2,9 +2,9 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.orm import Mapper
 from sqlalchemy.orm.attributes import get_history
 
-from buddah import db
-from buddah.lib import generate_users_token
-from buddah.lib import listen_for
+from buddha import db
+from buddha.lib import generate_users_token
+from buddha.lib import listen_for
 
 
 class User(db.Model):
@@ -42,11 +42,13 @@ def after_user_acivated(
         connection: Connection,
         target: User,
 ) -> None:
+    from buddha.email import send_mail_account_created_to_user
+    
     history = get_history(target, 'is_active')
     old_value = history.deleted[0] if history.deleted else None
     new_value = history.added[0] if history.added else None
     if new_value and not old_value:
-        pass    # TODO here must be email sending
+        send_mail_account_created_to_user(target)
 
 
 @listen_for(User, 'before_update')

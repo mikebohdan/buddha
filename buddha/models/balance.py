@@ -1,7 +1,7 @@
 from sqlalchemy import ForeignKey
 from sqlalchemy.types import Enum
 
-from buddah import db
+from buddha import db
 
 CURRENCIES = (
     'USD',

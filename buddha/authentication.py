@@ -1,9 +1,9 @@
 from flask import g
 
-from buddah import auth
-from buddah import auth_manager
-from buddah import db
-from buddah.models import User
+from buddha import auth
+from buddha import auth_manager
+from buddha import db
+from buddha.models import User
 
 
 @auth.verify_token

@@ -9,13 +9,13 @@ from flask_classy import FlaskView
 from flask_classy import route
 from sqlalchemy.exc import IntegrityError
 
-from buddah import auth
-from buddah import auth_manager
-from buddah import db
-from buddah.lib import generate_users_token
-from buddah.models import Balance
-from buddah.models import User
-from buddah.forms import UserRegistrationForm
+from buddha import auth
+from buddha import auth_manager
+from buddha import db
+from buddha.lib import generate_users_token
+from buddha.models import Balance
+from buddha.models import User
+from buddha.forms import UserRegistrationForm
 
 
 class UserView(FlaskView):

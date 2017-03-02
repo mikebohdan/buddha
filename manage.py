@@ -1,7 +1,7 @@
 from flask_script import Manager
 from flask_migrate import MigrateCommand
 
-from buddah import create_app
+from buddha import create_app
 from config import Config
 
 app = create_app(Config)
