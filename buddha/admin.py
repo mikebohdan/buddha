@@ -12,7 +12,6 @@ class AdminModelView(ModelView):
     can_view_details = True
 
     column_exclude_list = [
-        'token',
         'balances',
     ]
 

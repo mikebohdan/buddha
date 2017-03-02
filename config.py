@@ -5,13 +5,17 @@ POSTGRESQL_AUTH_URI_TEMPLATE = \
 
 
 class Config:
+    """
+    For this application I've been running Postgres service via docker
+    https://hub.docker.com/_/postgres/
+    """
     SECRET_KEY = 'really not very secret key'
     SQLALCHEMY_DATABASE_URI = POSTGRESQL_AUTH_URI_TEMPLATE.format(
-        username='buddah',
-        password='buddah',
+        username='buddha',
+        password='buddha',
         host='localhost',
         port=32768,
-        database='buddah',
+        database='buddha',
     )
     SECRET_SALT = 'my_very_secret_token_salt'
     # email config

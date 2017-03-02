@@ -6,8 +6,8 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 
 admin_plug = Admin()
-auth = HTTPTokenAuth('Buddah-User')
-auth_manager = HTTPTokenAuth('Buddah-Manager')
+auth = HTTPTokenAuth('Buddha-User')
+auth_manager = HTTPTokenAuth('Buddha-Manager')
 
 db = SQLAlchemy()
 migrate = Migrate()
