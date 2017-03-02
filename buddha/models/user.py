@@ -43,11 +43,14 @@ def after_user_acivated(
         target: User,
 ) -> None:
     from buddha.email import send_mail_account_created_to_user
-    
+
     history = get_history(target, 'is_active')
     old_value = history.deleted[0] if history.deleted else None
     new_value = history.added[0] if history.added else None
     if new_value and not old_value:
+        # In real world app there mustn't be direct call of send_mail function.
+        # It's better to add celery task to queue and than process it async
+        # without need of stopping whole service.
         send_mail_account_created_to_user(target)
 
 
